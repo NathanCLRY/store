@@ -15,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return 'Home';
+        $categories = Category::all();
+        $products = Product::orderBy('id', 'desc')->paginate(10);
+        return view('product.products', compact('categories', 'products'));
     }
 
 
@@ -24,7 +26,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return 'Détail';
+        return view('product.show');
     }
 
     public function productByCategory(Category $category)
