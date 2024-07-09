@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfileController;
 //Affichage des produits
 Route::get('/', [ProductController::class, 'index'])->name('product');
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.detail');
-Route::get('/product/category/{category}', [ProductController::class, 'productByCategory'])->name('byCategory');
+Route::get('/product/category/{id}', [ProductController::class, 'productByCategory'])->name('byCategory');
 
 
 //Gestion du dashboard
