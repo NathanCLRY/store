@@ -20,6 +20,13 @@
     background-color: orange;
 }
 
+.categories:hover{
+    background-color: gray;
+    color: white;
+    transition-duration: 700ms;
+    transition-property: background-color, color;
+}
+
 @media only screen and (max-width:400px) {
     .container{
         flex-direction: column;

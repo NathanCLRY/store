@@ -1,10 +1,12 @@
 @extends('layouts.store')
 
 @section('content')
-    <ul class="m-4 flex flex-1 gap-4">
+    <ul class="m-4 flex flex-1 gap-4 justify-center">
         @foreach ($categories as $category)
-            <li class="bg-orange-300 p-1 rounded-full p-5">
-                <a href="{{route('byCategory',$category->id)}}">{{$category->name}}</a>
+            <li class="categories p-1 rounded-full p-5">
+                <button class="">
+                    <a href="{{route('byCategory',$category->id)}}" class="italic">#{{$category->name}}</a>
+                </button>
             </li>
         @endforeach
     </ul>
