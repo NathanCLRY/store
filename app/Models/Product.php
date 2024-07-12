@@ -18,6 +18,10 @@ class Product extends Model
         'images',
     ];
 
+    protected $casts = [
+        'images' => 'array',
+    ];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

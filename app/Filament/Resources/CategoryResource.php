@@ -10,6 +10,8 @@ use Filament\Tables\Table;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\CategoryResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -19,13 +21,14 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 TextInput::make('name'),
+                FileUpload::make('image'),
             ]);
     }
 
@@ -35,6 +38,9 @@ class CategoryResource extends Resource
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('name'),
+                ImageColumn::make('image')
+                    ->circular()
+                    ->stacked(),
                 TextColumn::make('created_at'),
                 TextColumn::make('updated_at'),
             ])
