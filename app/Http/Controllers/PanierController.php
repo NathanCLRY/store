@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PanierController extends Controller
@@ -10,8 +11,9 @@ class PanierController extends Controller
     {
         return 'liste';
     }
-    public function ajouter()
+    public function ajouter(Product $product)
     {
+        dd($product);
         return 'ajouter';
     }
     public function commander()
