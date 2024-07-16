@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('paniers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Commande::class)->constrained()->cascadeOnDelete()->nullable();
             $table->foreignIdFor(Product::class)->constrained()->cascadeOnDelete();
             $table->integer('quantite')->default(1);
             $table->timestamps();
